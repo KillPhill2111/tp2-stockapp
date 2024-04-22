@@ -12,27 +12,32 @@ namespace StockApp.Domain.Entities
     {
         #region Atributos
         public int Id { get; set; }
-            public string Name { get; set; }
+        public string Name { get; set; }
         #endregion
-
+        
         #region Construtores
-        public Category(string name)
-        {
-            ValidateDomain(name);
-        }
-
         public Category(int id, string name)
         {
-            DomainExceptionValidation.When(id < 0, "Invalid Id value.");
+            DomainExceptionValidation.When(id < 0, "Invalid Id value");
+            DomainExceptionValidation.When(name == null, "Invalid Name value");
+            DomainExceptionValidation.When(name.Length <= 3, "Invalid name, too short");
             Id = id;
+            Name = name;
             ValidateDomain(name);
         }
-        
+
+        private void ValidateDomain(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<Product> Products { get; set; }
+        public object Description { get; set; }
+        public object Price { get; set; }
         #endregion
 
         #region Validação
-        private void ValidateDomain(string name)
+        private void ValidateDomain(string name, int id)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name),
                 "Invalid name, name is required.");
@@ -40,8 +45,12 @@ namespace StockApp.Domain.Entities
             DomainExceptionValidation.When(name.Length < 3,
                 "Invalid name, too short, minimum 3 characters.");
 
+            DomainExceptionValidation.When(id < 0, "Invalid Id value.");
+
             Name = name;
+            Id= id;
         }
         #endregion
+
     }
 }

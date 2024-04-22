@@ -9,6 +9,7 @@ namespace StockApp.Domain.Entities
 {
     public class Product
     {
+ 
         #region Atributos
         public int Id { get; set; }
         public string Name { get; set; }
@@ -19,11 +20,27 @@ namespace StockApp.Domain.Entities
         public int CategoryId { get; set; }
         #endregion
 
-        public Product()
+        /*
+        public Product(int v, string v1)
         {
 
         }
 
+        public Product(int v, string v1, string v2, decimal v3, int v4, string v5, int v6) : this(v, v1)
+        {
+            this.v2 = v2;
+            this.v3 = v3;
+            this.v4 = v4;
+            this.v5 = v5;
+            this.v6 = v6;
+        }
+        */
+
+        public Product(int id, string name, string description, decimal price, int stock, string image, int category)
+        {
+            ValidateDomain(name, description, price, stock, image);
+            CategoryId = category;
+        }
         public Category Category { get; set; }
 
         private void ValidateDomain(string name, string description, decimal price, int stock, string image)
