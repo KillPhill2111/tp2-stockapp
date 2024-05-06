@@ -1,4 +1,4 @@
-﻿using HelperStockBeta.Infra.Data.Repositories;
+﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
