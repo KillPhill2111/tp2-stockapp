@@ -1,4 +1,4 @@
-﻿using StockApp.Application.DTOs;
+﻿        using StockApp.Application.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

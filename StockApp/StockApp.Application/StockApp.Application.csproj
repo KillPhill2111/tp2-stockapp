@@ -14,5 +14,9 @@
     <PackageReference Include="AutoMapper" Version="11.0.0" />
     <PackageReference Include="MediatR" Version="10.0.1" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Mappings\NovaPasta\" />
+  </ItemGroup>
 
 </Project>
